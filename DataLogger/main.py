@@ -1,23 +1,10 @@
 from serialApp import *
 from arquivo import *
 from datetime import *
-from socket import *
 from time import sleep
 
-# #para enviar UDP
-# msgFromClient = "IP"
-# bytesToSend = str.encode(msgFromClient)
-# serverAddressPort = ("192.168.0.11", 8080)
-# bufferSize = 24
-
-# # Create a UDP socket at client side
-# client_socket = socket(AF_INET, SOCK_DGRAM)  # Set up the Socket
-# client_socket.settimeout(1)  # Only wait 1 second for a response
-
-#parte do datalogger
-
 arq = f'{date.today()}.txt'
-# Cria o objeto para classe serialApp
+# Cria o objeto para classe serialclearApp
 ser = serialApp()
 
 # Cria o arquivo .txt
@@ -26,6 +13,7 @@ criar(arq)
 # Realiza um update das portas seriais
 u = ser.updatePort()
 
+print(u)
 
 # Definir baudrate e porta serial
 ser.serialPort.port = 'COM5'
