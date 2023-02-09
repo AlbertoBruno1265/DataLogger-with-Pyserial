@@ -1,6 +1,7 @@
 from datetime import *
 from serialApp import *
 from writeFiles import *
+import keyboard
 
 file = f'{date.today()}.txt'
 
@@ -24,6 +25,23 @@ serial.connectSerial()
 while True:
     write(file, str(serial.readSerial()))
 
+    if keyboard.is_pressed("esc"):
+        while True:
+            o = str(input("Tem certeza que quer sair? [Y/N]: ")).strip().upper()
+
+            if o in "YN":
+                break
+            else:
+                print("Tecla errada, apenas Y ou N!")
+
+        if o == "Y":
+            print("Saindo...")
+            break
+        
+
+
+
+
     # #Envio de msg UDP
     #
     # escrever(arq, "UDP Send")
@@ -43,4 +61,5 @@ while True:
     #     pass
 
 # Finaliza a serial
-# serial.closeSerial()
+serial.closeSerial()
+print("Finalizado o programa")
