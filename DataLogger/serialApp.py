@@ -29,11 +29,11 @@ class serialApp():
         except UnicodeDecodeError:
             print(f'{str(datetime.today())[0:str(datetime.today()).find(".")]} -> ERRO! Linha ignorada!')
             msg = 'Mensagem com formato ilegível!'
-            return msg
         else:
             msg = str(dataRead)
             print(f'{str(datetime.today())[0:str(datetime.today()).find(".")]} -> {msg}')
-            return msg
+
+        return msg
 
     # Fechar conexão
     def closeSerial(self):
