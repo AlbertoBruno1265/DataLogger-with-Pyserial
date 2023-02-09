@@ -1,22 +1,19 @@
 from serialApp import *
-from arquivo import *
+from writeFiles import *
 from datetime import *
-from time import sleep
 
 arq = f'{date.today()}.txt'
 # Cria o objeto para classe serialclearApp
 ser = serialApp()
 
 # Cria o arquivo .txt
-criar(arq)
+create(arq)
 
 # Realiza um update das portas seriais
 u = ser.updatePort()
 
-print(u)
-
 # Definir baudrate e porta serial
-ser.serialPort.port = 'COM5'
+ser.serialPort.port = u[0]
 ser.serialPort.baudrate = 9600
 
 # Conexão
@@ -24,7 +21,7 @@ ser.connectSerial()
 
 # Recebe e escreve às informações da serial
 while True:
-    escrever(arq, str(ser.readSerial()))
+    write(arq, str(ser.readSerial()))
 
     # #Envio de msg UDP
     #

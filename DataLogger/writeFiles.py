@@ -1,15 +1,14 @@
-def criar(arq):
+def create(arq):
     try:
         with open(arq, 'r', encoding='utf-8') as arquivo:
-            l = arquivo.read()
+            arquivo.read()
     except:
         with open(arq, 'w', encoding='utf-8') as arquivo:
-            l = arquivo.write('')
-        print(f'O arquivo {arq} foi criado com sucesso!')
-    return l
+            arquivo.write('')
+            print(f'O arquivo {arq} foi criado com sucesso!')
 
 
-def escrever(arq, msg):
+def write(arq, msg):
     from datetime import datetime
     try:
         with open(arq, 'a') as arquivo:

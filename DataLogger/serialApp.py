@@ -9,8 +9,10 @@ class serialApp():
 
     # Metodo de update de portas seriais
     def updatePort(self):
-        self.portlist = [port.device for port in serial.tools.list_ports.comports()]
-        print(self.portlist)
+        ports = [port.device for port in serial.tools.list_ports.comports()]
+        self.portlist = ports
+        print(ports)
+        return ports
 
     # Conexão
     def connectSerial(self):
