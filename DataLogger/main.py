@@ -1,6 +1,6 @@
+from datetime import *
 from serialApp import *
 from writeFiles import *
-from datetime import *
 
 file = f'{date.today()}.txt'
 
