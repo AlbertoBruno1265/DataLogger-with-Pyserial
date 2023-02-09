@@ -37,7 +37,9 @@ while True:
         if o == "Y":
             print("Saindo...")
             break
-        
+        else:
+            print("Continuando...")
+
 
 
 
