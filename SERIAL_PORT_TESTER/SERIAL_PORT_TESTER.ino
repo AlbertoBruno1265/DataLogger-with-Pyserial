@@ -3,7 +3,7 @@
 
     BY: ALBERTO BRUNO SILVESTRE DE OLIVEIRA
 
-    GITHUB: 
+    GITHUB: https://github.com/AlbertoBruno1265/DataLogger-with-Pyserial
  */
 
 int seconds = 0;
