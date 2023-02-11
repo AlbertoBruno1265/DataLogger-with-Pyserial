@@ -5,41 +5,44 @@ import keyboard
 
 file = f'{date.today()}.txt'
 
-# Cria o objeto para classe serialclearApp
+# Create the Serial object
 serial = serialApp()
 
-# Cria o arquivo .txt
+# Create the .txt file
 create(file)
 
-# Realiza um update das portas seriais
+# Check and Update Serial Ports
 update = serial.updatePort()
 
-# Definir baudrate e porta serial
+# Define baudrate and Serial Port
 serial.serialPort.port = update[0]
 serial.serialPort.baudrate = 9600
 
-# Conexão
+# Open the Serial Port
 serial.connectSerial()
 
-# Recebe e escreve às informações da serial
+# Receive and write to Serial information
 while True:
+    # Colect the Serial information and write in .txt file
     write(file, str(serial.readSerial()))
 
+    # Check "esc" button to break while
     if keyboard.is_pressed("esc"):
         while True:
-            o = str(input("Tem certeza que quer sair? [Y/N]: ")).strip().upper()
+            # Wait for confirmation or not
+            o = str(input("Stop? [Y/N]: ")).strip().upper()
 
             if o in "YN":
                 break
             else:
-                print("Tecla errada, apenas Y ou N!")
+                print("ERROR! Only Y or N!")
 
         if o == "Y":
-            print("Saindo...")
+            print("Exiting...")
             break
         else:
-            print("Continuando...")
+            print("Resuming...")
 
-# Finaliza a serial
+# Ended the Serial
 serial.closeSerial()
-print("Finalizado o programa")
+print("Finished the program")

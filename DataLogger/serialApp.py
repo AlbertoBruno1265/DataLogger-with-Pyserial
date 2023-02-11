@@ -7,34 +7,34 @@ class serialApp():
         self.baudrate = [9600]
         self.portlist = []
 
-    # Metodo de update de portas seriais
+    # Opdate of Serial Ports
     def updatePort(self):
         ports = [port.device for port in serial.tools.list_ports.comports()]
         self.portlist = ports
         print(ports)
         return ports
 
-    # Conexão
+    # Connection
     def connectSerial(self):
         try:
             self.serialPort.open()
         except:
-            print('Ocorreu um erro ao abrir o serial!')
+            print('An error occurred while opening the Serial!')
 
-    # Receber dados
+    # Receive information of Serial
     def readSerial(self):
         from datetime import datetime
         try:
             dataRead = self.serialPort.readline().decode('utf-8')
         except UnicodeDecodeError:
-            print(f'{str(datetime.today())[0:str(datetime.today()).find(".")]} -> ERRO! Linha ignorada!')
-            msg = 'Mensagem com formato ilegível!'
+            print(f'{str(datetime.today())[0:str(datetime.today()).find(".")]} -> ERROR! Skipped line!')
+            msg = 'Message in unreadable format!'
         else:
             msg = str(dataRead)
             print(f'{str(datetime.today())[0:str(datetime.today()).find(".")]} -> {msg}')
 
         return msg
 
-    # Fechar conexão
+    # Close Serial
     def closeSerial(self):
         self.serialPort.close()
