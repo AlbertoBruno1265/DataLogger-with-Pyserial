@@ -9,6 +9,7 @@ def create(files):
 
 
 def write(files, msg):
+    # Include datetime librarie
     from datetime import datetime
     try:
         with open(files, 'a') as file:
