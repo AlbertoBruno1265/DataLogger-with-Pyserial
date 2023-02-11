@@ -3,9 +3,10 @@
 
     BY: ALBERTO BRUNO SILVESTRE DE OLIVEIRA
 
-    GITHUB: 
+    GITHUB: https://github.com/AlbertoBruno1265/DataLogger-with-Pyserial
  */
 
+// Create time variables
 int seconds = 0;
 int delayMs = 1000;
 
