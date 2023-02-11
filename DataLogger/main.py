@@ -3,6 +3,7 @@ from serialApp import *
 from writeFiles import *
 import keyboard
 
+# Set computer date as .txt file name
 file = f'{date.today()}.txt'
 
 # Create the Serial object
