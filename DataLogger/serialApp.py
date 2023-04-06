@@ -8,7 +8,7 @@ class serialApp():
         self.baudrate = [9600]
         self.portlist = []
 
-    # Opdate of Serial Ports
+    # Update of Serial Ports
     def updatePort(self):
         ports = [port.device for port in serial.tools.list_ports.comports()]
         self.portlist = ports
